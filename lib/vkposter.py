@@ -25,7 +25,7 @@ class VKPoster:
         posting_time = self.posting_time.split(':')
         now = datetime.datetime.now()
         self.next_post_time = datetime.datetime(now.year, now.month, now.day, int(posting_time[0]), int(posting_time[1]))
-        if self.next_post_time < now:
+        if self.next_post_time < now or self.next_post_time.weekday() is 6:
             self.set_next_day_post()
 
     def __init_upload_url(self):
